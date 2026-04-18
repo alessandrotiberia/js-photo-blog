@@ -5,20 +5,22 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: "Edu Tas Beginner", sans-serif;
-}
 
 .titolo {
-   background-image: url("./assets_day1/img/wall.png"); /* img come sfondo*/
-   background-size: cover; /* prende tutto lo spazio*/
-    background-position: center; 
+    font-family: "Edu Tas Beginner", sans-serif; /*font richiesto */
+    background-image: url("./assets_day1/img/wall.png");
+    background-size: cover;  /* prende tutto lo spazio*/
+    background-position: center;
 
     text-align: center;
     /* Aggiunge spazio interno: 40px sopra e sotto, 20px a destra e sinistra */
     padding: 40px 20px;
 }
 
-.foto {
-    background-image: url("./assets_day1/img/cork.png");
+/* Sfondo del main */
+.sfondo_sughero {
+    background-image: url("../assets_day1/img/cork.png");
+    background-repeat: repeat;
+    min-height: 100vh;
+    padding: 50px 20px;
 }
