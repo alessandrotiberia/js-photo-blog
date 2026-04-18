@@ -1,7 +1,6 @@
 * {
     padding: 0;
     margin: 0;
-    border: 0;
     box-sizing: border-box;
 }
 
@@ -32,19 +31,25 @@ h1 {
 }
 
 /* Regole per la scatola che conterra tutte le foto (div class contenitore) */
+
 .contenitore {
+
     /* diventa una griglia */
     display: grid;
+
     /* spazio tra le foto */
     gap: 50px;
+
     /* centra la griglia orizzontalmente */
     margin: 0 auto;
+
     /* limita la larghezza massima della griglia */
     max-width: 1000px;
+    
     /* di default, una colonna sola (mobile) */
     grid-template-columns: 1fr;
-}
 
+}
 
 
 /* Quando lo schermo e piu largo di 768px (Tablet), la griglia passa a 2 colonne */
@@ -59,4 +64,45 @@ h1 {
     .contenitore {
         grid-template-columns: repeat(3, 1fr);
     }
+}
+
+
+/*stile foto del js*/
+/*classe spilla_fissaggio e applico regole a tutte le immagini della spilla*/
+
+.spilla_fissaggio {
+
+position: absolute;
+/*spingo sopra in negativo*/
+top: -15px;
+left: 50%;
+transform: translateX(-50%);
+    width: 35px;
+    z-index: 5;
+}
+
+/* Regole FONDAMENTALI per la carta fotografica */
+.scheda_polaroid {
+    background-color: #ffffff; /* sfondo bianco */
+    padding: 15px;
+    padding-bottom: 30px;
+    
+    /* Questa riga e il segreto: dice alla spilla "usa questa carta come recinto" */
+    position: relative; 
+    
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Faccio in modo che l'immagine occupi tutta la carta */
+.immagine_card {
+    width: 100%;
+    display: block;
+}
+
+/* Stile per il testo */
+.testo_didascalia {
+    font-family: "Edu Tas Beginner", sans-serif;
+    font-size: 1.3rem;
+    margin-top: 15px;
+    color: #333333;
 }
