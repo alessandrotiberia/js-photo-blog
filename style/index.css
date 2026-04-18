@@ -7,14 +7,20 @@
 
 
 .titolo {
-    font-family: "Edu Tas Beginner", sans-serif; /*font richiesto */
+    font-family: "Edu Tas Beginner", sans-serif;
+    /*font richiesto */
     background-image: url("./assets_day1/img/wall.png");
-    background-size: cover;  /* prende tutto lo spazio*/
+    background-size: cover;
+    /* prende tutto lo spazio*/
     background-position: center;
 
     text-align: center;
     /* Aggiunge spazio interno: 40px sopra e sotto, 20px a destra e sinistra */
     padding: 40px 20px;
+}
+
+h1 {
+    font-size: 4rem;
 }
 
 /* Sfondo del main */
@@ -23,4 +29,34 @@
     background-repeat: repeat;
     min-height: 100vh;
     padding: 50px 20px;
+}
+
+/* Regole per la scatola che conterra tutte le foto (div class contenitore) */
+.contenitore {
+    /* diventa una griglia */
+    display: grid;
+    /* spazio tra le foto */
+    gap: 50px;
+    /* centra la griglia orizzontalmente */
+    margin: 0 auto;
+    /* limita la larghezza massima della griglia */
+    max-width: 1000px;
+    /* di default, una colonna sola (mobile) */
+    grid-template-columns: 1fr;
+}
+
+
+
+/* Quando lo schermo e piu largo di 768px (Tablet), la griglia passa a 2 colonne */
+@media (min-width: 768px) {
+    .contenitore {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Quando lo schermo e piu largo di 992px (Desktop), la griglia passa a 3 colonne */
+@media (min-width: 992px) {
+    .contenitore {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
