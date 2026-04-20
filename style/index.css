@@ -45,7 +45,7 @@ h1 {
 
     /* limita la larghezza massima della griglia */
     max-width: 1000px;
-    
+
     /* di default, una colonna sola (mobile) */
     grid-template-columns: 1fr;
 
@@ -72,24 +72,25 @@ h1 {
 
 .spilla_fissaggio {
 
-position: absolute;
-/*spingo sopra in negativo*/
-top: -15px;
-left: 50%;
-transform: translateX(-50%);
+    position: absolute;
+    /*spingo sopra in negativo*/
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 35px;
     z-index: 5;
 }
 
 /* Regole FONDAMENTALI per la carta fotografica */
 .scheda_polaroid {
-    background-color: #ffffff; /* sfondo bianco */
+    background-color: #ffffff;
+    /* sfondo bianco */
     padding: 15px;
     padding-bottom: 30px;
-    
+
     /* Questa riga e il segreto: dice alla spilla "usa questa carta come recinto" */
-    position: relative; 
-    
+    position: relative;
+
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
 }
 
@@ -105,4 +106,93 @@ transform: translateX(-50%);
     font-size: 1.3rem;
     margin-top: 15px;
     color: #333333;
+}
+
+/*.scheda_polaroid:hover {
+     rotate(360deg) fa fare un giro completo, scale(1.1) la ingrandisce un po' 
+    transform: rotate(360deg) scale(1.1);
+    z-index: 10;  La porta in primo piano rispetto alle altre 
+}*/
+
+.scheda_polaroid:hover {
+    /* Si inclina di 15 gradi verso destra */
+    transform: rotate(15deg) scale(1.1);
+    z-index: 10;
+}
+
+/*overlay*/
+#overlay {
+    position: fixed;
+    /* Sta fermo anche se scorri la pagina */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    /* Occupa tutta la larghezza dello schermo */
+    height: 100vh;
+    /* Occupa tutta l'altezza dello schermo */
+    background-color: rgba(0, 0, 0, 0.8);
+    /* Nero trasparente all'80% */
+    z-index: 100;
+    /* Deve stare sopra alle polaroid (che hanno z-index 10) */
+
+    /* Usiamo flexbox per centrare l'immagine perfettamente al centro dello schermo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.nascosto {
+    display: none !important;
+}
+
+.scheda_polaroid:hover .spilla_fissaggio {
+    opacity: 0;
+    /* Rende la spilla invisibile */
+}
+
+
+#modal-foto {
+    margin: auto;
+    /* Il browser centra la finestra automaticamente! */
+    border: none;
+    /* Togliamo il bordo di default del browser */
+    background: transparent;
+    /* Sfondo trasparente così si vede solo la foto */
+    overflow: visible;
+}
+
+/* ::backdrop è lo sfondo scuro che il browser crea in automatico dietro al dialog */
+#modal-foto::backdrop {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* La foto ingrandita */
+#img-modal {
+    max-width: 80vw;
+    max-height: 80vh;
+    border: 10px solid white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    display: block;
+}
+
+/* Il bottone della X */
+#chiudi-modal {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    background-color: #d81b60;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#chiudi-modal:hover {
+    background-color: white;
+    color: #d81b60;
 }
